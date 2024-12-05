@@ -1,4 +1,12 @@
-(ns get-started.project)
+(ns mini.playground)
+
+; This project has custom configuration.
+; See .vscode/settings.json
+
+; If you are new to Calva, you may want to use the command:
+; Calva: Create a “Getting Started” REPL project
+; which creates a project with a an interactive Calva (and Clojure) guide.
+
 
 
 ;Wordfinder Input: a m × n grid of letters and a word. Output: find the
@@ -54,9 +62,17 @@
 (get-char grid 0 1) 
 ;i
 (get-char grid 2 2) 
+
+(get-char grid 3 2)
+
+(get-char grid 0 0)
 ;nill
 (get-char grid -1 0) 
 
+(second "hello")
+
+
+(last "hello" )
 
 
 (defn find_first_letter [grid, target]
@@ -65,7 +81,23 @@
          colum (range (count (grid raw)))
          :when (= (get-char grid raw colum) first_letter)]  ;ここがtrueの時だけ
      [raw colum])))
+(find_first_letter grid "hello")
+
+(find_first_letter grid "eye")
 
 
 
 
+
+;for [n ]
+
+(defn find_last_letter [grid, target]
+  (let [last_letter (last target)]
+    (for [raw (range (count grid))
+          colum (range (count (grid raw)))
+          :when (= (get-char grid raw colum) last_letter)]  ;ここがtrueの時だけ
+      [raw colum])))
+
+(find_last_letter grid "hello")
+
+def

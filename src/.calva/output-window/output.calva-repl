@@ -1,0 +1,42 @@
+; Connecting ...
+; Reading port file: file:///Users/etsukokasahara/Downloads/poetry%20of%20programing/src/.nrepl-port ...
+; No nrepl port file found.
+; Bad url: localhost:
+; Jacking in...
+; Connecting using "joyride" project type.
+; You can make Calva auto-select this.
+;   - See https://calva.io/connect-sequences/
+; 
+
+; Connecting using "Generic" project type.
+; You can make Calva auto-select this.
+;   - See https://calva.io/connect-sequences/
+; 
+
+; Connecting ...
+; Reading port file: file:///Users/etsukokasahara/Downloads/poetry%20of%20programing/src/.nrepl-port ...
+; No nrepl port file found.
+; Bad url: localhost:
+; Jacking in...
+; Connecting using "nbb" project type.
+; You can make Calva auto-select this.
+;   - See https://calva.io/connect-sequences/
+; 
+
+; Starting Jack-in: (cd /Users/etsukokasahara/Downloads/poetry of programing/src; npx nbb nrepl-server :port 61122)
+; Connecting using "ClojureScript nREPL Server" project type.
+; You can make Calva auto-select this.
+;   - See https://calva.io/connect-sequences/
+; 
+
+; Connecting ...
+; Reading port file: file:///Users/etsukokasahara/Downloads/poetry%20of%20programing/src/.nrepl-port ...
+; No nrepl port file found.
+; Bad url: localhost:port
+; Jacking in...
+; Connecting using "nbb" project type.
+; You can make Calva auto-select this.
+;   - See https://calva.io/connect-sequences/
+; 
+
+; Starting Jack-in: (cd /Users/etsukokasahara/Downloads/poetry of programing/src; npx nbb nrepl-server :port 61188)
