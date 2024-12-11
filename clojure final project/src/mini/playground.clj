@@ -18,21 +18,6 @@
 
 
 
-;def (list, word);
-;       m = len(list(0))
-;       n = len(list)
-
-
-;mの値　横の文字の数
-
-
-
-(def m (count (["ahk" "pet" "klk" "ili" "pot"] 1)))
-
-;nの値　縦の文字の数
-
-(def n (count ["ahk" "pet" "klk" "ili" "pot"]))
-
 ; grid　n*m
 (def grid ["ahk"
            "pet"
@@ -41,7 +26,7 @@
            "pot"])
 
 ; target word
-(def target "hello")
+(def target-word "hello")
 
 
 ;fisrst letter
@@ -57,22 +42,6 @@
              (< c (count (grid r))))
     (nth (nth grid r) c)))
 
-;(def grid ["abc" "def" "ghi"])
-;b
-(get-char grid 0 1) 
-;i
-(get-char grid 2 2) 
-
-(get-char grid 3 2)
-
-(get-char grid 0 0)
-;nill
-(get-char grid -1 0) 
-
-(second "hello")
-
-
-(last "hello" )
 
 
 (defn find_first_letter [grid, target]
@@ -100,4 +69,63 @@
 
 (find_last_letter grid "hello")
 
-def
+
+(def directions [[-1 0]  ; 上
+                 [1 0]   ; 下
+                 [0 -1]  ; 左
+                 [0 1]   ; 右
+                 [-1 -1] ; 左上
+                 [-1 1]  ; 右上
+                 [1 -1]  ; 左下
+                 [1 1]]) ; 右下
+
+
+
+
+(defn check_word_match [grid target-word start-row start-col direction]
+  (let [current-char (get-char grid start-row start-col)      ;; 現在のセルの文字
+        expected-char (first target-word)]
+    (if (or (nil? current-char) (not= current-char expected-char))
+      false
+      (if (= (count target-word) 1)
+        true
+        (let [next-row (+ start-row (first direction))
+              next-col (+ start-col (second direction))]
+          (check_word_match grid (rest target-word) next-row next-col direction))))))
+
+(check_word_match grid "pet" 1 0 [0 1])
+(check_word_match grid "pet" 1 0 [-1 0])
+(check_word_match grid "pot" 1 2 [1 0])
+(check_word_match grid "pli" 1 0 [1 1])
+
+;; リストを作るにだ
+(defn find_word_make_list [grid target-word start-row start-col direction]
+  (letfn [(find [raw col remaining list]
+            (if (empty? remaining)
+              list
+              (let [current-char (get-char grid raw col)]
+                (if (or (nil? current-char) (not= current-char (first remaining)))
+                  nil
+                  (find (+ raw (first direction))
+                              (+ col (second direction))
+                              (rest remaining)
+                              (conj list [raw col]))))))]
+    (find start-row start-col target-word [])))
+
+
+(find_word_make_list grid "pet" 1 0 [0 1])
+(find_word_make_list grid "pot" 2 2 [1 0])
+(find_word_make_list grid "hello" 0 1 [1 0])
+
+
+
+
+
+(def grid ["ahk"
+           "pet"
+           "klk"
+           "ili"
+           "pot"])
+
+
+
